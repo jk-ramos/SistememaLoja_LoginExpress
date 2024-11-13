@@ -1,0 +1,61 @@
+<%- include ('partials/header.ejs') %>
+    <%- include ('partials/navbar.ejs') %>
+
+<br><br>
+<div class="container">
+    <div class="card">
+        <div class="card-header">
+            <h1>Cadastrar Produtos</h1>
+        </div>
+        <div class="card-body">
+            <form action="/produtos/new" method="post">
+                <label>Nome Produto</label>
+                <input type="text" name="nome" placeholder="Insira o nome do Produto" class="form-control" required>
+                <label>Categoria do Produto</label>
+                <input type="text" name="categoria" placeholder="Insira a categoria do Produto" class="form-control" required>
+                <label>Preço do Produto</label>
+                <input type="text" name="preco" placeholder="Insira o preço do Produto" class="form-control" required>
+                <br>
+                <input type="submit" value="Cadastrar" class="btn btn-success">
+            </form>
+        </div>
+    </div>
+</div><br>
+
+<div class="container text-center bg-light flex-grow-1 p-3 mb-4">
+    <div class="container p-1">
+        <h1>Tabela de Produtos</h1>
+    </div>
+    <div class="card">
+        <div class="card-header">
+            PRODUTOS
+        </div>
+        <div class="card-body">
+            <table class="table">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col"></th>
+                        <th scope="col">NOME PRODUTO</th>
+                        <th scope="col">CATEGORIA</th>
+                        <th scope="col">PREÇO</th>
+                        <th colspan="2">AÇÕES</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% produtos.forEach(produto=> { %>
+                        <tr>
+                            <td scope="row"><span class="material-symbols-outlined">inventory_2</span></td>
+                            <td><%= produto.nome %></td>
+                            <td><%= produto.categoria %></td>
+                            <td><%= produto.preco %></td>
+                            <td><a href="/produtos/edit/<%= produto.id %>" style="color: orange;">Editar</a></td>
+                            <td><a href="/produtos/delete/<%= produto.id %>" style="color: red;">Apagar</a></td>
+                        </tr>
+                    <% }) %>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<%-  include('partials/footer.ejs')%>

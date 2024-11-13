@@ -1,0 +1,13 @@
+body{
+    background-image: linear-gradient(to top,
+    rgba(52, 152, 219, 0.5), /* Cor azul clara */
+    rgba(25, 90, 160, 0.5)   /* Cor azul mais escura */
+);
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+}
+
+.navbar-nav .nav-link {
+    font-size: 20px; 
+  }
